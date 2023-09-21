@@ -1,0 +1,26 @@
+<!-- Escriba un convertidor de segundos a minutos y segundos que conste de dos páginas.
+ En la primera página se solicitan los segundos a convertir (número entero).
+ Los segundos deben ser un número entero mayor o igual que cero.
+ En la segunda página se muestra el resultado en minutos y segundos. -->
+
+ <!DOCTYPE html>
+ <html lang="en">
+ <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+ </head>
+ <body>
+    <p>Escriba un numero de segundos para convertir a minutos y segundos.</p>
+    <form action="ej1.php" method="post">
+        <p>
+        <label for="segungos">Segundos: </label>
+        <input type="number" name="segundos" id="segundos" min="0" required>
+        </p>
+        <p>
+        <button type="submit">Convertir</button>
+        <button type="reset">Borrar</button>
+        </p>
+    </form>
+ </body>
+ </html>

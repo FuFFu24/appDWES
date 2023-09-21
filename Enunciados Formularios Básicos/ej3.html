@@ -1,0 +1,32 @@
+<!-- Escriba un programa que admita tres valores numéricos que corresponden a los tres
+coeficientes de una ecuación de segundo grado y que muestre las soluciones de la
+ecuación.
+ En la primera página se solicitan los valores de los coeficientes
+En la segunda se hacen los cálculos y se muestran los resultados. -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>Dado la ecuación de segundo grado <strong>a.x2 + b.x + c = 0</strong>, escriba los valores de los tres coeficientes y 
+        resolveré la ecuación:</p>
+    <form action="ej3.php" method="post">
+        <p>
+            <label for="a">A: </label>
+            <input type="number" name="a" id="a" required>
+            <br>
+            <label for="b">B: </label>
+            <input type="number" name="b" id="b" required>
+            <br>
+            <label for="c">C: </label>
+            <input type="number" name="c" id="c" required>
+            <br>
+            <button type="submit">Enviar</button>
+        </p>
+    </form>
+</body>
+</html>

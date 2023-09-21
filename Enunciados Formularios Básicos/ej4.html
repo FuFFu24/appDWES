@@ -1,0 +1,43 @@
+<!-- Escriba un convertidor de divisas que conste de dos páginas.
+En la primera página se solicita la cantidad y la divisa.
+En la segunda página se muestra el resultado.
+La cotización es fija. En el ejemplo se utilizarán las siguientes cotizaciones:
+1 euro = 1,00 dólares USA
+1 euro = 143,05 yen
+1 euro = 166,386 pesetas
+1 euro = 20,08 peso mexicano
+El programa tendrá dos páginas:
+a. La primera pide los valores.
+b. La segunda escribe la respuesta. -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>Escriba la cantidad de dinero (valores entre 0 y 1.000.000) y elija la divisa.</p>
+    <form action="ej4.php" method="post">
+        <p>
+            <label for="cantidad">Convertir en Euros: </label>
+            <input type="number" name="cantidad" id="cantidad" required>
+        </p>
+        <p>
+            <input type="radio" name="divisa" id="dolares">
+            <label for="dolares">Dolares USA</label>
+            <input type="radio" name="divisa" id="pesos">
+            <label for="pesos">Pesos</label>
+            <input type="radio" name="divisa" id="yenes">
+            <label for="yenes">Yenes</label>
+            <input type="radio" name="divisa" id="pesetas">
+            <label for="pesetas">Pesetas</label>
+        </p>
+        <p>
+            <button type="submit">Enviar</button>
+            <button type="reset">Borrar</button>
+        </p>
+    </form>
+</body>
+</html>

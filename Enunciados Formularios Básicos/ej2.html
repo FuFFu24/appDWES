@@ -1,0 +1,32 @@
+<!-- Escriba una calculadora del índice de masa corporal (imc) que conste de dos páginas.
+ En la primera página se solicitan el peso en kg y la altura en cm de una persona.
+ El peso debe ser un número entero o decimal mayor que cero.
+ La altura debe ser un número entero mayor que cero.
+En la segunda página se muestra el índice de masa corporal correspondiente (sin
+decimales).
+ La fórmula del imc es: imc = peso / altura2 (peso en kilogramos y altura en metros). -->
+
+ <!DOCTYPE html>
+ <html lang="en">
+ <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+ </head>
+ <body>
+    <p>Escriba su peso en kilogramos y su altura en centimetros para calcular su indice de masa corporal.</p>
+    <form action="ej2.php" method="post">
+        <p>
+            <label for="peso">Peso: </label>
+            <input type="number" name="peso" id="peso">kg
+            <br>
+            <label for="altura">Altura: </label>
+            <input type="number" name="altura" id="altura">cm
+            </p>
+        <p>
+        <button type="submit">Calcular</button>
+        <button type="reset">Borrar</button>
+        </p>
+    </form>
+ </body>
+ </html>
