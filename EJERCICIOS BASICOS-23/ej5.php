@@ -78,10 +78,18 @@ resultado total. -->
 
         .resultado {
             display: inline-block;
+            position: relative;
             margin: 10px;
-            width: 60px;
-            height: 60px;
+            width: 40px;
+            height: 40px;
             border: 1px solid #000;
+            top: 25px;
+        }
+
+        .medio {
+            position: absolute;
+            top: 10px;
+            left: 15px;
         }
     </style>
 </head>
@@ -96,7 +104,7 @@ resultado total. -->
 
     // Dibuja los dados en CSS
     echo '<div class="dice">' . drawDice($tirada1) . '</div>';
-    echo '<div class="dice">' . drawDice($tirada2) . '</div';
+    echo '<div class="dice">' . drawDice($tirada2) . '</div>';
 
     // Función para dibujar un dado en CSS
     function drawDice($number) {
@@ -136,7 +144,7 @@ resultado total. -->
     }
 
     // Imprime los resultados
-    echo "<p>Total: <div class='resultado'>$total</div></p>";
+    echo "<div>Total: <div class='resultado'><div class='medio'>$total</div></div></div>";
     ?>
 </body>
 </html>
