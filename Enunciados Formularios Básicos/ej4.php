@@ -10,19 +10,19 @@
     if (($cantidad=$_REQUEST['cantidad']) && $divisa=$_REQUEST['divisa']) {
         switch ($divisa) {
             case 'dolares':
-                echo '<p>'.$cantidad.' dolares son '.$cantidad.' euros.</p>';
+                echo '<p>'.round($cantidad,2).' dolares son '.$cantidad.' euros.</p>';
                 break;
             case 'pesos':
                 $total = $cantidad / 20.08;
-                echo '<p>'.$total.' pesos son '.$cantidad.' euros.</p>';
+                echo '<p>'.round($total,2).' pesos son '.$cantidad.' euros.</p>';
                 break;
             case 'yenes':
                 $total = $cantidad / 143.05;
-                echo '<p>'.$total.' yenes son '.$cantidad.' euros.</p>';
+                echo '<p>'.round($total,2).' yenes son '.$cantidad.' euros.</p>';
                 break;
             case 'pesetas':
                 $total = $cantidad / 166.386;
-                echo '<p>'.$total.' pesetas son '.$cantidad.' euros.</p>';
+                echo '<p>'.round($total,2).' pesetas son '.$cantidad.' euros.</p>';
                 break;                        
             default:
                 # code...
