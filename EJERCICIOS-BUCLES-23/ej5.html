@@ -1,0 +1,40 @@
+<!-- Escriba un programa que conste de dos páginas y que muestre los
+términos de una sucesión aritmética.
+ En la primera página se solicita el valor inicial, el incremento y el
+número de valores.
+ En la segunda página se muestran los términos de la sucesión
+correspondiente. -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="ej5.php" method="post">
+        <p>Escriba los tres valores y le mostrare los terminos de la sucesion aritmetica correspondiente.</p>
+        <p>
+            <table>
+                <tr>
+                    <td><label for="valorInicial"><strong>Valor Inicial: </strong></label></td>
+                    <td><input type="number" name="valorInicial" id="valorInicial"></td>
+                </tr>
+                <tr>
+                    <td><label for="incremento"><strong>Incremento: </strong></label></td>
+                    <td><input type="number" name="incremento" id="incremento"></td>
+                </tr>
+                <tr>
+                    <td><label for="numeroValores"><strong>Numero de Valores: </strong></label></td>
+                    <td><input type="number" name="numeroValores" id="numeroValores"></td>
+                </tr>
+            </table>
+        </p>
+        <p>
+            <button type="submit">Mostrar</button>
+            <input type="reset" value="Borrar">
+        </p>
+    </form>
+</body>
+</html>

@@ -63,40 +63,7 @@ Si no gana ningún jugador, lógicamente se habrá producido un empate. -->
         echo '<div><p class="centroP">Jugador 2</p><div class="azul">
             <img src="img/'.$rand2.'.svg" alt="dado2">
             <img src="img/'.$rand4.'.svg" alt="dado4">
-            <img src="img/'.$rand6.'.svg" alt="dado6"></div></div>';
-
-        function calcularPuntuacion($dado1,$dado2,$dado3) {
-            
-            $puntuacion = 0;
-            
-            // Verificar si hay un trío
-            if ($dado1 == $dado2 && $dado2 == $dado3) {
-                $puntuacion = 100 + $dado1;
-            }
-            // Verificar si hay una pareja
-            elseif ($dado1 == $dado2 || $dado2 == $dado3) {
-                $puntuacion = 10 + max($dado1, $dado2, $dado3);
-            }
-            // Calcular la puntuación total
-            else {
-                $puntuacion = $dado1 + $dado2 + $dado3;
-            }
-            
-            return $puntuacion;
-        }
-
-        // Calcular puntuaciones de los jugadores
-        $puntuacionJugador1 = calcularPuntuacion($rand1,$rand3,$rand5);
-        $puntuacionJugador2 = calcularPuntuacion($rand2,$rand4,$rand6);
-
-        // Determinar quién ha ganado
-        if ($puntuacionJugador1 > $puntuacionJugador2) {
-            echo "<p>Jugador 1 ha ganado con una puntuación de $puntuacionJugador1 frente a $puntuacionJugador2 de Jugador 2.</p>";
-        } elseif ($puntuacionJugador2 > $puntuacionJugador1) {
-            echo "<p>Jugador 2 ha ganado con una puntuación de $puntuacionJugador2 frente a $puntuacionJugador1 de Jugador 1.</p>";
-        } else {
-            echo "<p>Ha habido un empate con una puntuación de $puntuacionJugador1 para ambos jugadores.</p>";
-        }
+            <img src="img/'.$rand6.'.svg" alt="dado6"></div></div>';        
     ?>
 </body>
 </html>

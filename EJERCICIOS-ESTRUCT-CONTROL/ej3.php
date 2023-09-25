@@ -54,21 +54,17 @@ empate. -->
         echo '<div><p class="centroP">Jugador 2</p><div class="azul">
             <img src="img/'.$rand2.'.svg" alt="dado2"><img src="img/'.$rand4.'.svg" alt="dado4"></div></div>';
 
-        $total1=$rand1+$rand3;
-        $total2=$rand2+$rand4;
-        
-        if ($total1 != $total2) {
-            if ($total1 > $total2) {
-                $ganador='Ha ganado el juegador 1.';
-            } else {
-                $ganador='Ha ganado el juegador 2.';
-            }
-            
+        if ($rand1==$rand3 && $rand2!=$rand4) {
+            echo '<div><p class="centroP">Resultado</p><div style="margin: 2px;">Jugador 1</div></div>';
+        } elseif ($rand1!=$rand3 && $rand2==$rand4) {
+            echo '<div><p class="centroP">Resultado</p><div style="margin: 2px;">Jugador 2</div></div>';
+        } elseif (($rand1+$rand3)>($rand2+$rand4)) {
+            echo '<div><p class="centroP">Resultado</p><div style="margin: 2px;">Jugador 1</div></div>';
+        } elseif (($rand1+$rand3)<($rand2+$rand4)) {
+            echo '<div><p class="centroP">Resultado</p><div style="margin: 2px;">Jugador 2</div></div>';
         } else {
-            $ganador='Empate.';
+            echo '<div><p class="centroP">Resultado</p><div style="margin: 2px;">Empate</div></div>';
         }
-
-        echo '<div><p class="centroP">Resultado</p><div style="margin: 2px;">'.$ganador.'</div></div>';
     ?>
 </body>
 </html>

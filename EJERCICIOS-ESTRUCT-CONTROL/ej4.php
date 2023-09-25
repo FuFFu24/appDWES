@@ -26,9 +26,15 @@ mayor de los valores obtenidos.
             <img src="img/'.$rand3.'.svg" alt="dado3"></div>';
         
         if ($rand1 == $rand2 && $rand2 == $rand3) {
-            $ganador = "Ha salido un trío de $rand1";
+            $ganador = "Ha salido un trío de $rand1.";
         } elseif ($rand1 == $rand2 || $rand2 == $rand3 || $rand1 == $rand3) {
-            $ganador = "Ha salido una pareja.";
+            if ($rand1 == $rand2) {
+                $ganador = "Ha salido una pareja de $rand1.";
+            } else if ($rand2 == $rand3) {
+                $ganador = "Ha salido una pareja de $rand2.";
+            } else {
+                $ganador = "Ha salido una pareja de $rand3.";
+            }
         } else {
             $mayor = max($numeros);
             $ganador = "El número mayor es: $mayor.";
