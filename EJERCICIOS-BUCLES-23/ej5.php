@@ -11,17 +11,20 @@
             
             echo '<p>Datos: </p>
                 <ol>
-                    <li type:"disc">Valor inicual: '.$valorInicial.'</li>
-                    <li type:"disc">Valor final: '.($numeroValores-1).'</li>
-                    <li type:"disc">Incremento: '.$incremento.'</li>
-                    <li type:"disc">Numero de terminos: '.$numeroValores.'</li>
+                    <li type="disc">Valor inicial: '.$valorInicial.'</li>
+                    <li type="disc">Valor final: </li>
+                    <li type="disc">Incremento: '.$incremento.'</li>
+                    <li type="disc">Numero de terminos: '.$numeroValores.'</li>
                 </ol>';
 
             echo '<p>Terminos de la sucesion: </p>';
             echo '<ol>';
 
-            for ($i=$valorInicial; $i < $numeroValores; $i+=$incremento) { 
-                        echo '<li>'.$i.'</li>';
+            $resultado = $valorInicial;
+
+            for ($i=0; $i < $numeroValores; $i++) { 
+                $resultado += $incremento;
+                echo '<li>'.$resultado.'</li>';
             }
 
             echo '</ol>';
