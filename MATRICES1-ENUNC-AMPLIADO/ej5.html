@@ -1,0 +1,45 @@
+<!-- Escriba un programa que conste de dos páginas.
+ La primera página solicitará el rango de la cantidad de valores a
+calcular y el rango de valores a calcular
+ La segunda página generará una matriz de un número aleatorio
+de valores numéricos en el rango indicado por el usuario. Los
+valores se encontrarán en el rango indicado por el usuario,
+obtenidos también de forma aleatoria.
+ -->
+
+ <!DOCTYPE html>
+ <html lang="en">
+ <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+ </head>
+ <body>
+    <p>Indique el rango del número de valores y el rango de los valores y mostraré un numero aleatorio 
+      de valores aleatorios en los rangos indicados.</p>
+   <form action="ej5.php" method="post">
+      <table>
+         <tr>
+            <td><label for="numMinVal">Número mínimo de valores: </label></td>
+            <td><input type="number" name="numMinVal" id="numMinVal"></td>
+         </tr>
+         <tr>
+            <td><label for="numMaxVal">Número máximo de valores: </label></td>
+            <td><input type="number" name="numMaxVal" id="numMaxVal"></td>
+         </tr>
+         <tr>
+            <td><label for="minVal">Valor mínimo: </label></td>
+            <td><input type="number" name="minVal" id="minVal"></td>
+         </tr>
+         <tr>
+            <td><label for="maxVal">Valor máximo: </label></td>
+            <td><input type="number" name="maxVal" id="maxVal"></td>
+         </tr>
+      </table>
+      <p>
+         <button type="submit">Mostrar</button>
+         <button type="reset">Borrar</button>
+      </p>
+   </form>
+ </body>
+ </html>
