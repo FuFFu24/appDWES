@@ -1,0 +1,36 @@
+<!-- 1. Escriba un programa que valide una cadena de texto y que
+conste de dos páginas.
+ En la primera página se solicita que se escriba texto (letras o
+números).
+ En la segunda página se indica si la cadena de texto es:
+1. vacía.
+2. una única palabra (sólo letras).
+3. dos palabras (sólo letras, separadas por uno o varios
+espacios).
+4. una única palabra que contenga solamente letras inglesas.
+5. una cadena de vocales minúsculas sin acentuar (a, e, i, o,
+u) en orden alfabético (se pueden repetir las vocales). Por
+ejemplo, "aaaeeu" es válida, pero "aauee" no.
+6. un único número (sin decimales ni signo).
+7. un único número par (sin decimales ni signo).
+8. un único número de teléfono (9 cifras, empezando por 6 o
+9).
+9. un único número del DNI (de 1 a 8 números, con letra
+inglesa final mayúscula o sin ella).
+10. un único código postal (cinco cifras, empezando por
+0, 1, 2, 3 o 4). -->
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Validación de Cadena</title>
+</head>
+<body>
+    <form action="ej1.php" method="post">
+        <label for="texto">Escriba texto:</label>
+        <input type="text" name="texto" id="texto" required>
+        <button type="submit">Validar</button>
+    </form>
+</body>
+</html>

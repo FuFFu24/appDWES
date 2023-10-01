@@ -1,0 +1,38 @@
+<!-- Escriba un programa que valide una cadena de texto y que
+conste de dos páginas.
+ En la primera página se solicita que se escriba texto (letras o
+números).
+ En la segunda página se indica si la cadena de texto es:
+1. uno o más letras sueltas separadas por espacios. Por
+ejemplo, "a c é" es válida, pero "a c de" no.
+2. dos o más letras sueltas separadas por espacios. Por
+ejemplo, "a c é" es válida, pero "d" no.
+3. una o más palabras (sólo letras inglesas minúsculas,
+separadas por uno o varios espacios).
+4. una única palabra en mayúsculas.
+5. fecha de nacimiento: dd/mm/aaaa (la fecha puede no
+existir, por ejemplo, "00/00/0000" es válida).
+6. un único número sin signo y con como mucho dos
+decimales (el separador puede ser punto o coma, pero
+sólo puede estar si hay decimales).
+7. un único número con signo (más o menos) y con
+decimales (el separador puede ser punto o coma, pero
+sólo puede estar si hay decimales).
+8. contraseña (al menos seis caracteres, puede contener
+letras, números y los caracteres * + . - _, pero no espacios
+u otros caracteres). -->
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Validación de Cadena</title>
+</head>
+<body>
+    <form action="ej2.php" method="post">
+        <label for="texto">Escriba texto:</label>
+        <input type="text" name="texto" id="texto" required>
+        <button type="submit">Validar</button>
+    </form>
+</body>
+</html>
