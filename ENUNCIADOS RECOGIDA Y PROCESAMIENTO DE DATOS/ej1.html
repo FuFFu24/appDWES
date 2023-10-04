@@ -1,0 +1,42 @@
+<!-- Escriba un formulario de recogida de datos personales que:
+o Se solicitan el nombre y los apellidos.
+o Se muestran los dos textos introducidos por el usuario o se
+informa de los errores cometidos. -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            background-color: aqua;
+        }
+
+        h2 {
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>DATOS PERSONALES 2 (FORMULARIO)</h2>
+    <form action="ej1.php" method="post">
+        <p>
+            <label for="nombre">Escriba su nombre: </label>
+            <input type="text" name="nombre" id="nombre">
+        </p>
+        <p>
+            <label for="apellidos">Escriba sus apellidos: </label>
+            <input type="text" name="apellidos" id="apellidos">
+        </p>
+        <p>
+            <button type="submit">Enviar</button>
+            <button type="reset">Borrar</button>
+        </p>
+    </form>
+</body>
+
+</html>
