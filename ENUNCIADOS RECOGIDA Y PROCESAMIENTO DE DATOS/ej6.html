@@ -1,0 +1,123 @@
+<!-- Escriba un formulario de recogida de datos personales que
+ se solicitan los datos.
+ se muestra toda la información introducida por el usuario o
+se informa de los errores cometidos. -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            background-color: aqua;
+        }
+
+        h2 {
+            text-align: center;
+        }
+
+        .uno {
+            position: absolute;
+            display: flex;
+            background-color: plum;
+            border: 4px solid cornflowerblue;
+            top: 40px;
+            left: 60px;
+            height: 40px;
+        }
+
+        .dos {
+            background-color: plum;
+            border: 4px solid cornflowerblue;
+            padding: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>DATOS PERSONALES 6 (FORMULARIO)</h2>
+    <div class="uno">
+        <h3>Formulario</h3>
+    </div>
+    <div class="dos">
+        <form action="ej6.php" method="post">
+            <p>Escriba los datos siguientes: </p>
+            <table>
+                <tr>
+                    <td>
+                        <p>
+                            <label for="nombre"><strong>Nombre: </strong></label>
+                            <input type="text" name="nombre" id="nombre">
+                        </p>
+                    </td>
+                    <td>
+                        <p>
+                            <label for="apellidos"><strong>Apellidos: </strong></label>
+                            <input type="text" name="apellidos" id="apellidos">
+                        </p>
+                    </td>
+                    <td>
+                        <p>
+                            <label for="edad"><strong>Edad: </strong></label>
+                            <select name="edad" id="edad">
+                                <option value="...">...</option>
+                                <option value="Menos de 20 anos">Menos de 20 anos</option>
+                                <option value="Entre 20 y 39 anos">Entre 20 y 39 anos</option>
+                                <option value="Entre 40 y 59 anos">Entre 40 y 59 anos</option>
+                                <option value="60 anos o mas">60 anos o mas</option>
+                            </select>
+                        </p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <p>
+                            <label for="peso"><strong>Peso: </strong></label>
+                            <input type="number" name="peso" id="peso">kg
+                        </p>
+                    </td>
+                    <td>
+                        <p>
+                            <strong>Sexo: </strong>
+                            <input type="radio" name="sexo" id="hombre" value="hombre"><label
+                                for="hombre">Hombre</label>
+                            <input type="radio" name="sexo" id="mujer" value="mujer"><label for="mujer">Mujer</label>
+                        </p>
+                    </td>
+                    <td>
+                        <p>
+                            <strong>Estado Civil: </strong>
+                            <input type="radio" name="estado" id="soltero" value="soltero"><label
+                                for="soltero">Soltero</label>
+                            <input type="radio" name="estado" id="casado" value="casado"><label
+                                for="casado">Casado</label>
+                            <input type="radio" name="estado" id="otro" value="otro"><label for="otro">Otro</label>
+                        </p>
+                    </td>
+                </tr>
+            </table>
+            <p>
+                <strong>Aficiones: </strong>
+                <input type="checkbox" name="aficiones[]" id="cine" value="cine"><label for="cine">Cine</label>
+                <input type="checkbox" name="aficiones[]" id="literatura" value="literatura"><label
+                    for="literatura">Literatura</label>
+                <input type="checkbox" name="aficiones[]" id="tebeos" value="tebeos"><label for="tebeos">Tebeos</label>
+                <input type="checkbox" name="aficiones[]" id="deport" value="deporte"><label
+                    for="deport">Deporte</label>
+                <input type="checkbox" name="aficiones[]" id="musica" value="musica"><label for="musica">Música</label>
+                <input type="checkbox" name="aficiones[]" id="television" value="television"><label
+                    for="television">Televisión</label>
+            </p>
+            <p>
+                <button type="submit">Enviar</button>
+                <button type="reset">Borrar</button>
+            </p>
+        </form>
+    </div>
+
+</body>
+
+</html>

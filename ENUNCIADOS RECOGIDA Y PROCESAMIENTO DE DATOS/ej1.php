@@ -20,35 +20,27 @@
     <?php
         $nombre = "";
         $apellidos = "";
-
-        $nombreError = "";
-        $apellidosError = "";
+        $patronNombre = "/^[a-zA-Z]+$/";
+        $patronApellidos = "/^[a-zA-Z\s]+$/";
 
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
+            $nombre = $_POST["nombre"];
             if (empty($_POST["nombre"])) {
-                $nombreError = "Por favor, ingresa tu nombre.";
+                echo "<p>Por favor, ingresa tu nombre.</p>";
+            } else if (preg_match($patronNombre, $nombre)) {
+                echo '<p>Su nombre es '.$nombre.'</p>';
             } else {
-                $nombre = $_POST["nombre"];
+                echo '<p style="color:red;">¿Que haces?</p>';
             }
 
+            $apellidos = $_POST["apellidos"];
             if (empty($_POST["apellidos"])) {
-                $apellidosError = "Por favor, ingresa tus apellidos.";
+                echo "<p>Por favor, ingresa tus apellidos.</p>";
+            } else if (preg_match($patronApellidos, $apellidos)) {
+                echo '<p>Sus apellidos son '.$apellidos.'</p>';
             } else {
-                $apellidos = $_POST["apellidos"];
+                echo '<p style="color:red;">¿Que haces?</p>';
             }
-        }
-
-        if (empty($nombreError) && empty($apellidosError)) {
-            echo '<p>Su nombre es '.$nombre.'</p>';
-            echo '<p>Sus apellidos son '.$apellidos.'</p>';
-        } else {
-            if (!empty($nombreError)) {
-                echo '<p>'.$nombreError.'</p>';
-            } 
-            if (!empty($apellidosError)) {
-                echo '<p>'.$apellidosError.'</p>';
-            }
-            
         }
     ?>
     <a href="ej1.html">Volve al formulario.</a>

@@ -1,0 +1,44 @@
+<!-- Escriba un programa que indique los colores que se quieren cambiar
+y que
+ se pide elegir los colores que se quiere cambiar (fondo de la página
+y texto de la página).
+ se indican los colores elegidos. -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            background-color: aqua;
+        }
+
+        h2 {
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>COLORES 3(FORMULARIO)</h2>
+    <p>Elija los colores a cambiar: </p>
+    <form action="ej4.php" method="post">
+        <p>
+            <label for="fondo">Color de fondo de la pagina: </label>
+            <input type="color" name="fondo" id="fondo">
+        </p>
+        <p>
+            <label for="texto">Color de texto de la pagina: </label>
+            <input type="color" name="texto" id="texto">
+        </p>
+        <p>
+            <button type="submit">Enviar</button>
+            <button type="reset">Borrar</button>
+        </p>
+    </form>
+</body>
+
+</html>

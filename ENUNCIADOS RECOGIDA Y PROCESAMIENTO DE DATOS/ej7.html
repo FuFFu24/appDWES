@@ -1,0 +1,96 @@
+<!-- Escriba un formulario de recogida de datos personales que conste
+de :
+ La solicitud de los datos.
+
+ Mostrar toda la información introducida por el usuario, o se
+informa de los errores cometidos, y te indica si puedes
+mandar la solicitud o debes volver a introducir los datos,
+En este último caso volveremos al formulario inicial.
+ Si todo estacorrecto se visualiza que se ha admitido la
+solicitud
+ -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            background-color: aqua;
+        }
+
+        h2 {
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>SUSCRIPCION ELECTRONICA A NUESTRO BOLETIN</h2>
+    <form action="ej7.php" method="post">
+        <p>Escriba los datos siguientes: </p>
+        <p>
+            <label for="nombre"><strong>Nombre: </strong></label>
+            <input type="text" name="nombre" id="nombre">
+            <label for="apellidos"><strong>Apellidos: </strong></label>
+            <input type="text" name="apellidos" id="apellidos">
+            <label for="email"><strong>E-mail: </strong></label>
+            <input type="email" name="email" id="email">
+            <label for="contrasena"><strong>Contraseña: </strong></label>
+            <input type="password" name="contrasena" id="contrasena">
+        </p>
+        <p>
+            <strong>Sexo: </strong>
+            <input type="radio" name="sexo" id="hombre" value="hombre"><label for="hombre">Hombre</label>
+            <input type="radio" name="sexo" id="mujer" value="mujer"><label for="mujer">Mujer</label>
+        </p>
+        <p>
+            <strong>Nivel de estudios: </strong>
+            <input type="checkbox" name="estudios[]" id="certificado escolar" value="certificado escolar"><label
+                for="certificado escolar">Certificado escolar</label>
+            <input type="checkbox" name="estudios[]" id="graduado en ESO" value="graduado en ESO"><label
+                for="graduado en ESO">Graduado en ESO</label>
+            <input type="checkbox" name="estudios[]" id="bachiller formacion profesional"
+                value="bachiller formacion profesional"><label for="bachiller formacion profesional">Bachiller -
+                Formacion profesional</label>
+            <input type="checkbox" name="estudios[]" id="diplomado" value="diplomado"><label
+                for="diplomado">Diplomado</label>
+            <input type="checkbox" name="estudios[]" id="licenciado o doctorado" value="licenciado o doctorado"><label
+                for="licenciado o doctorado">Licenciado o Doctorado</label>
+        </p>
+        <p>
+            <strong>Interesado en los siguientes temas: </strong>
+            <input type="checkbox" name="temas[]" id="cine" value="cine"><label for="cine">Cine</label>
+            <input type="checkbox" name="temas[]" id="deportes" value="deportes"><label for="deportes">Deportes</label>
+            <input type="checkbox" name="temas[]" id="libros" value="libros"><label for="libros">Libros</label>
+            <input type="checkbox" name="temas[]" id="musica" value="musica"><label for="musica">Música</label>
+            <input type="checkbox" name="temas[]" id="ciencia" value="ciencia"><label for="ciencia">Ciencia</label>
+        </p>
+        <p>
+            <label for="dia"><strong>Dia de la semana que le interesa recibirlo: </strong></label>
+            <select name="dia" id="dia">
+                <option value="dia">Dia de la semana: </option>
+                <option value="lunes">Lunes</option>
+                <option value="martes">Martes</option>
+                <option value="miercoles">Miercoles</option>
+                <option value="jueves">Jueves</option>
+                <option value="viernes">Viernes</option>
+                <option value="sabado">Sabado</option>
+                <option value="domingo">Domingo</option>
+            </select>
+        </p>
+        <p>
+            <label for="opinion"><strong>Su opinión: </strong></label>
+            <textarea name="opinion" id="opinion" cols="30" rows="10">Comentario:</textarea>
+        </p>
+        <p>
+            <button type="submit">Enviar</button>
+            <button type="reset">Borrar</button>
+        </p>
+    </form>
+</body>
+
+</html>

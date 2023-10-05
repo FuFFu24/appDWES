@@ -1,0 +1,64 @@
+<!-- Escriba un formulario de recogida de datos personales que
+ Se solicitan las aficiones.
+ Se muestran las aficiones indicadas por el usuario o se
+informa de los errores cometidos. -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            background-color: aqua;
+        }
+
+        h2 {
+            text-align: center;
+        }
+
+        .uno {
+            position: absolute;
+            display: flex;
+            background-color: plum;
+            border: 4px solid cornflowerblue;
+            top: 40px;
+            left: 60px;
+            height: 40px;
+        }
+
+        .dos {
+            background-color: plum;
+            border: 4px solid cornflowerblue;
+            padding: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>DATOS PERSONALES 4 (FORMULARIO)</h2>
+    <div class="uno">
+        <h3>Formulario</h3>
+    </div>
+    <div class="dos">
+        <form action="ej3.php" method="post">
+            <p>Indique sus aficiones: </p>
+            <p>
+                <strong>Aficiones: </strong>
+                <input type="checkbox" name="aficiones[]" id="cine" value="cine"><label for="cine">Cine</label>
+                <input type="checkbox" name="aficiones[]" id="literatura" value="literatura"><label
+                    for="literatura">Literatura</label>
+                <input type="checkbox" name="aficiones[]" id="musica" value="musica"><label for="musica">Música</label>
+            </p>
+            <p>
+                <button type="submit">Enviar</button>
+                <button type="reset">Borrar</button>
+            </p>
+        </form>
+    </div>
+
+</body>
+
+</html>
