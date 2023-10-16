@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 4</title>
+</head>
+
+<body>
+    <form action="ej4.php" method="get">
+        <p>Nombre: <input type="text" name="Nombre" id="Nombre">
+            Apellido: <input type="text" name="Apellido" id="Apellido"></p>
+
+        <p>Direccion: <input type="text" name="Direccion" id="Direccion"></p>
+
+        <p>Fecha de nacimiento: <input type="date" name="FechaNac" id="FechaNac"></p>
+
+        <p>Edad: <input type="number" name="Edad" id="Edad"></p>
+
+        <p><b>Idiomas</b></p>
+        <input type="checkbox" name="Castellano" id="Castellano">Castellano<br>
+        <input type="checkbox" name="Rumano" id="Rumano">Rumano<br>
+        <input type="checkbox" name="Ingles" id="Ingles">Ingles<br>
+        <input type="checkbox" name="Frances" id="Frances">Frances<br>
+
+        <p><b>Genero</b></p>
+        <p><input type="radio" name="Genero" id="Genero" value="Masculino">Masculino</p>
+        <p><input type="radio" name="Genero" id="Genero" value="Femenino">Femenino</p>
+        <p><input type="radio" name="Genero" id="Genero" value="No quiero aportar">No quiero aportar</p>
+
+        <p>Direccion de correo: <input type="text" name="Correo" id="Correo"></p>
+
+        <p>Estudios <select name="Estudios" id="Estudios">
+                <option value="SinEStudios">SinEStudios</option>
+                <option value="ESO">ESO</option>
+                <option value="Bachillerato">Bachillerato</option>
+                <option value="FP">FP</option>
+                <option value="Universitario">Universitario</option>
+            </select></p>
+
+        <p><textarea name="descripcion" id="descripcion" cols="30" rows="10"></textarea></p>
+
+        <p><input type="submit" value="Enviar"><input type="reset" value="Cancelar"></p>
+    </form>
+</body>
+
+</html>

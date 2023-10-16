@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 2</title>
+</head>
+
+<body>
+    <form action="ej2.php" method="get">
+        <p>Nombre: <input type="text" name="Nombre" id="Nombre"></p>
+
+        <p>Contraseña: <input type="password" name="Contraseña" id="Contraseña"></p>
+
+        <select name="Educacion" id="Educacion">
+            <option value="Sin estudios">Sin estudios</option>
+            <option value="ESO">ESO</option>
+            <option value="Bachillerato">Bachillerato</option>
+            <option value="FP">FP</option>
+            <option value="Universitario">Universitario</option>
+            <option value="Otros">Otros</option>
+        </select>
+
+        <p>
+            Nacionalidad:
+            <input type="radio" name="Nacionalidad" id="Nacionalidad" value="Hispana">Hispana
+            <input type="radio" name="Nacionalidad" id="Sajona" value="Sajona">Sajona
+            <input type="radio" name="Nacionalidad" id="Otro" value="Otro">Otro
+        </p>
+        <p>
+            Idiomas:
+            <input type="checkbox" name="Ingles" id="Ingles" value="Ingles">Ingles
+            <input type="checkbox" name="Castellano" id="Castellano" value="Castellano">Castellano
+            <input type="checkbox" name="Frances" id="Frances" value="Frances">Frances
+            <input type="checkbox" name="Aleman" id="Aleman" value="Aleman">Aleman
+        </p>
+        <p>E-mail:
+            <input type="text" name="email" id="email">
+        </p>
+        <p>URL:
+            <input type="text" name="url" id="url">
+        </p>
+        <input type="submit" value="Enviar"><input type="reset" value="Cancelar">
+    </form>
+</body>
+
+</html>

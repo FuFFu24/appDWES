@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 3</title>
+</head>
+
+<body>
+    <h3>Busqueda de canciones</h3>
+    <form action="ej3.php" method="get">
+        <p>Texto a buscar: <input type="text" name="textoBusqueda" id="textoBusqueda"></p>
+
+        <p>Buscar en: <input type="radio" name="Canciones" id="Canciones" value="Titulos de la cancion">Titulos de la
+            cancion
+            <input type="radio" name="Canciones" id="Canciones" value="Nombres de album"> Nombres de album
+            <input type="radio" name="Canciones" id="Canciones" value="Ambos Campos">Ambos Campos
+        </p>
+
+        <select name="Genero musical" id="Genero musical">
+            <option value="Todos">Todos</option>
+            <option value="Acustica">Acustica</option>
+            <option value="Banda sonora">Banda sonora</option>
+            <option value="Blues">Blues</option>
+            <option value="Electronica">Electronica</option>
+            <option value="Folk">Folk</option>
+            <option value="Jazz">Jazz</option>
+            <option value="New Age">New Age</option>
+            <option value="Pop">Pop</option>
+            <option value="Rock">Rock</option>
+        </select>
+
+        <input type="submit" value="Enviar"><input type="reset" value="Cancelar">
+    </form>
+</body>
+
+</html>
