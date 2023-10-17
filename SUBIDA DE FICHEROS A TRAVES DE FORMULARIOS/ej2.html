@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form action="ej2.php" method="post" enctype="multipart/form-data">
+        <label for="titulo">Titulo: * </label>
+        <input type="text" name="titulo" id="titulo" required><br>
+        <label for="texto">Texto: * </label>
+        <textarea name="texto" id="texto" cols="50" rows="6" required></textarea><br>
+        <label for="categoria">Categoria: </label>
+        <select name="categoria" id="categoria">
+            <option value="playa">Playa</option>
+            <option value="montana">Montaña</option>
+            <option value="rio">Rio</option>
+        </select><br>
+        <label for="imagen">Imagen</label>
+        <input type="file" name="imagen" id="imagen"><br>
+        <button type="submit">Insertar noticia</button>
+    </form>
+</body>
+
+</html>

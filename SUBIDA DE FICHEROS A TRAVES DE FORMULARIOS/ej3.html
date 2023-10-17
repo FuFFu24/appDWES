@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <p>Introduzca los datos de la vivienda: </p>
+    <form action="ej3.php" method="post" enctype="multipart/form-data">
+        <label for="vivienda">Tipo de vivienda: </label>
+        <select name="vivienda" id="vivienda">
+            <option value="piso">Piso</option>
+            <option value="chalet">Chalet</option>
+        </select><br>
+        <label for="zona">Zona: </label>
+        <select name="zona" id="zona">
+            <option value="centro">Centro</option>
+            <option value="sur">Sur</option>
+        </select><br>
+        <label for="direccion">Direccion</label>
+        <input type="text" name="direccion" id="direccion"><br>
+        <label for="dormitorios">Numero de dormitorios</label>
+        <input type="radio" name="dormitorios" id="1" value="1">1
+        <input type="radio" name="dormitorios" id="2" value="2">2
+        <input type="radio" name="dormitorios" id="3" value="3">3
+        <input type="radio" name="dormitorios" id="4" value="4">4
+        <input type="radio" name="dormitorios" id="5" value="5">5<br>
+        <label for="precio">Precio: </label>
+        <input type="number" name="precio" id="precio">€<br>
+        <label for="tamano">Tamaño: </label>
+        <input type="number" name="tamano" id="tamano">metros cuadrados<br>
+        <label for="extras">Extras: </label>
+        <input type="checkbox" name="extras[]" id="piscina" value="piscina">Piscina
+        <input type="checkbox" name="extras[]" id="jardin" value="jardin">Jardin
+        <input type="checkbox" name="extras[]" id="garage" value="garage">Garage<br>
+        <label for="foto">Foto: </label>
+        <input type="file" name="foto" id="foto"><br>
+        <label for="observaciones">Observaciones: </label>
+        <textarea name="observaciones" id="observaciones" cols="30" rows="10"></textarea><br>
+        <button type="submit">Insertar vivienda</button>
+    </form>
+</body>
+
+</html>

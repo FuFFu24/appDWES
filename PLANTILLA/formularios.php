@@ -1,21 +1,32 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-<?php
-if ($_SERVER["REQUEST_METHOD"] === "POST") {
-    $nombre = $_POST["nombre"];
-    $apellidos = $_POST["apellidos"];
-    $edad = $_POST["edad"];
-    $telefono = $_POST["telefono"];
-    $email = $_POST["email"];
+<!-- 
+1. Recoger y sanear los datos.
+2. Crear variable para guardar errores.
+3. Verificar datos.
+4. Validar foto.
+5. Mostrar datos o errores.
+-->
 
-    // Validación de datos
+<?php
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // Recoger y sanear los datos
+    // Texto ()
+    $texto = isset($_POST['texto']) ? htmlspecialchars($_POST['texto']) : '';
+    // Numero (entero y decimal)
+    $entero = isset($_POST['entero']) ? intval(htmlspecialchars($_POST['entero'])) : '';
+    $decimal = isset($_POST['decimal']) ? floatval(htmlspecialchars($_POST['decimal'])) : '';
+    // Checkbox array
+    $checkbox = isset($_POST['checkbox']) ? array_map('htmlspecialchars', $_POST['checkbox']) : [];
+
+    // Sanear los datos por separado
+    $texto = htmlspecialchars(trim(strip_tags($texto)),ENT_QUOTES,"utf-8")
+    
+    // Validación de datos - guardar errores
     $errores = array();
+
+    // Verificar si se ha introducido algo
+    if (empty($texto)) {
+        $errores[] = "El texto es obligatorio (esta vacio).";
+    }
 
     // Validación de nombre y apellidos (existencia y longitud)
     if (empty($nombre) || strlen($nombre) > 50) {
@@ -41,7 +52,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         $errores[] = "El campo Email es inválido.";
     }
 
-    // Validación del archivo de imagen (foto)
+    // Validación de la subida de la foto
+    
     if (is_uploaded_file ($_FILES['foto']['tmp_name'])) {
         $nombreDirectorio = "img/";
         $nombreFichero = $_FILES['foto']['name'];
@@ -53,20 +65,24 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         }
         move_uploaded_file ($_FILES['foto']['tmp_name'],$nombreCompleto);
             echo "Fichero subido con el nombre: $nombreFichero<br>";
-            echo '<img src="'.$nombreCompleto.'" alt="">';
+            // echo "<img src='$nombreCompleto' alt=''>";
     } else {
         print ("No se ha podido subir el fichero\n");
-    }
+    }   
 
-    if (!empty($errores)) {
+    // Procesar los datos y la foto (por ejemplo, guardar en una base de datos y mover la foto a una carpeta)
+    // Aquí puedes agregar tu lógica para guardar los datos en una base de datos y mover la foto a una carpeta
+
+    if (empty($errores)) {
+        // Procesar los datos (puedes guardarlos en una base de datos)
+        // y mostrar un mensaje de éxito
+        echo "Datos del formulario procesados con éxito. La foto se ha subido correctamente.";
+    } else {
         // Mostrar errores en pantalla
         echo "Errores en el formulario:<br>";
         foreach ($errores as $error) {
-            echo "<span style='color: red;'>$error</span><br>";
+            echo "<p style='color: red;'>$error</p>";
         }
     }
 }
 ?>
-
-</body>
-</html>
