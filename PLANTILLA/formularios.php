@@ -10,15 +10,24 @@
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Recoger y sanear los datos
     // Texto ()
-    $texto = isset($_POST['texto']) ? htmlspecialchars($_POST['texto']) : '';
+    $texto = isset($_POST['texto']) ? htmlspecialchars(trim(strip_tags($_POST['texto'])),ENT_QUOTES,"utf-8") : '';
     // Numero (entero y decimal)
-    $entero = isset($_POST['entero']) ? intval(htmlspecialchars($_POST['entero'])) : '';
-    $decimal = isset($_POST['decimal']) ? floatval(htmlspecialchars($_POST['decimal'])) : '';
+    $entero = isset($_POST['entero']) ? intval(htmlspecialchars(trim(strip_tags($_POST['entero'])),ENT_QUOTES,"utf-8")) : '';
+    $decimal = isset($_POST['decimal']) ? floatval(htmlspecialchars(trim(strip_tags($_POST['decimal'])),ENT_QUOTES,"utf-8")) : '';
     // Checkbox array
-    $checkbox = isset($_POST['checkbox']) ? array_map('htmlspecialchars', $_POST['checkbox']) : [];
+    $checkbox = [];
+    if (isset($_POST['checkbox']) && is_array($_POST['checkbox'])) {
+        foreach ($_POST['checkbox'] as $value) {
+            // Realizar validación si es necesario
+            // Por ejemplo, verificar si $value cumple con ciertos criterios antes de aplicar htmlspecialchars()
+            
+            // Aplicar htmlspecialchars() a cada elemento del array
+            $checkbox[] = htmlspecialchars($value, ENT_QUOTES, 'utf-8');
+        }
+    }
 
     // Sanear los datos por separado
-    $texto = htmlspecialchars(trim(strip_tags($texto)),ENT_QUOTES,"utf-8")
+    $texto = htmlspecialchars(trim(strip_tags($texto)),ENT_QUOTES,"utf-8");
     
     // Validación de datos - guardar errores
     $errores = array();
