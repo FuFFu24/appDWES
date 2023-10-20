@@ -8,7 +8,7 @@
 <body>
     <?php
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
-        $fcomentarios = fopen("comentarios.txt", "r+");
+        $fcomentarios = fopen("comentarios.txt", "a+");
         
 
         $nombre = isset($_POST['nombre']) ? htmlspecialchars(trim(strip_tags($_POST['nombre'])),ENT_QUOTES,"utf-8") : '';
@@ -28,11 +28,15 @@
             echo "Datos del formulario procesados con éxito. La foto se ha subido correctamente.<br>";
             echo "Pulse <a href='comentarios.txt'>aqui</a> para ver todo el contenido del fichero.";
 
-            $texto = `
-                $nombre
-                $comentario
-                ------------------------------------------------------------
-            `;
+            // Puedes poner esto si abres el fichero con r+ o poner directamente a+
+            /* fseek($fcomentarios, filesize("comentarios.txt")); */
+            $texto = "\n$nombre\n$comentario\n------------------------------------------------------------";
+
+            // Tambien se puede poner asi (tal cual como lo ves)
+            /* $texto = ''.$nombre.'
+'.$comentario.'
+------------------------------------------------------------
+'; */
 
             fwrite($fcomentarios, $texto);
             fclose($fcomentarios);
