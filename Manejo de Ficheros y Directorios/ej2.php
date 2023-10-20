@@ -10,6 +10,7 @@
     $fcontador = fopen("contador.txt", "r+");
     $fdatos = fgets($fcontador);
     // rewind($fcontador);
+    $suma = $fdatos + 1;
     fseek($fcontador, 0);
     fwrite($fcontador, $suma);
     fclose($fcontador);
