@@ -6,24 +6,29 @@
     <title>Document</title>
 </head>
 <body>
-<?php
-$directorio = __DIR__;  // Obtener la ruta del directorio actual
-$archivos = array_filter(scandir($directorio), function ($item) use ($directorio) {
-    $rutaCompleta = $directorio . DIRECTORY_SEPARATOR . $item;
-    return is_file($rutaCompleta);  // Filtrar solo archivos, no directorios
-});
+<h1>Listado de Directorio</h1>
+    <table>
+        <tr>
+            <th>Nombre</th>
+            <th>Fecha de Modificación</th>
+            <th>Tamaño (bytes)</th>
+        </tr>
 
-echo "<h1>Archivos en el directorio:</h1>";
-echo "<ul>";
-foreach ($archivos as $archivo) {
-    $rutaCompleta = $directorio . DIRECTORY_SEPARATOR . $archivo;
-    $fechaModificacion = date("Y-m-d H:i:s", filemtime($rutaCompleta));
-    $tamano = filesize($rutaCompleta);
+        <?php
+        $directorio = opendir(".");
+        print"El directorio actual es:"; echo getcwd() ;
 
-    echo "<li>$archivo (Última modificación: $fechaModificacion, Tamaño: $tamano bytes)</li>";
-}
-echo "</ul>";
-?>
-
+        while($archivo = readdir($directorio)) { 
+            if(!is_dir($archivo)) {
+                echo "<tr>";
+                echo "<td>$archivo</td>";
+                echo '<td>'.date("d-m-Y H:i:s", filemtime($archivo)).'</td>';
+                echo '<td>'.filesize($archivo).'</td>';
+                echo "</tr>";
+            } 
+        }
+        closedir($directorio);
+        ?>
+    </table>
 </body>
 </html>

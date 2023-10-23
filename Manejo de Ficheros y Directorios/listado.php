@@ -10,37 +10,32 @@
     <table>
         <tr>
             <th>Nombre</th>
-            <th>Tipo</th>
             <th>Fecha de Modificación</th>
             <th>Tamaño (bytes)</th>
         </tr>
+
         <?php
-        // Directorio que deseas listar
-        $directorio = "../Manejo de Ficheros y Directorios"; // Puedes cambiar esto a la ruta de tu directorio
+        $directorio = opendir(".");
+        print "El directorio actual es:"; 
+        echo getcwd() ;
 
-        // Abre el directorio
-        if (is_dir($directorio)) {
-            $files = scandir($directorio);
-            foreach ($files as $file) {
-                // Ignora los directorios "." y ".."
-                if ($file != "." && $file != "..") {
-                    $rutaCompleta = $directorio . $file;
-                    $esDirectorio = is_dir($rutaCompleta);
-                    $tipo = $esDirectorio ? "Directorio" : "Archivo";
-                    $tamaño = $esDirectorio ? "" : filesize($file);
-                    $modificacion = date("Y-m-d H:i:s", filemtime($file));
-
+        while($archivo = readdir($directorio)) { 
+            if ($archivo != "." && $archivo != "..") {
+                if(is_dir($archivo)) {
                     echo "<tr>";
-                    echo "<td>$file</td>";
-                    echo "<td>$tipo</td>";
-                    echo "<td>$modificacion</td>";
-                    echo "<td>$tamaño</td>";
+                    echo "<td>[$archivo]</td>";
+                    echo '<td>'.date("d-m-Y H:i:s", filemtime($archivo)).'</td>';
+                    echo "</tr>";
+                } else {
+                    echo "<tr>";
+                    echo "<td>$archivo</td>";
+                    echo '<td>'.date("d-m-Y H:i:s", filemtime($archivo)).'</td>';
+                    echo '<td>'.filesize($archivo).'</td>';
                     echo "</tr>";
                 }
             }
-        } else {
-            echo "El directorio no existe.";
         }
+        closedir($directorio);
         ?>
     </table>
 </body>
