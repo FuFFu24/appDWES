@@ -1,0 +1,5 @@
+gran turquia:turquia:24 dias:lunes
+abu simbel:egipto:8 dias:martes, miercoles
+parque sur:madrid:2 dias:jueves
+club petalos:benalmadena:medio dia:sabado
+x madrid:madrid:1 dia:jueves

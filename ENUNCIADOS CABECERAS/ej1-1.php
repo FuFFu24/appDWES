@@ -17,7 +17,7 @@
         <p>Introduzca una direccion de un sitio web</p>
         <p>
             <label for="url">(ej http://www.google.com)</label>
-            <input type="url" name="url" id="url">
+            <input type="text" name="url" id="url">
         </p>
         <p>
             <button type="submit">Redireccionar</button>

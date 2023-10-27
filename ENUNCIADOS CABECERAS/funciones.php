@@ -1,11 +1,11 @@
 <?php
 
-function sanear($dato) {
+function sanearTexto($dato) {
     return htmlspecialchars(trim(strip_tags($dato)),ENT_QUOTES,"utf-8");
 }
 
-function validar($url) {
-    if (filter_var($url, FILTER_VALIDATE_URL)) {
+function validarURL($url) {
+    if (!empty($url) && filter_var($url, FILTER_VALIDATE_URL)) {
         return $url;
     } else {
         return 1;

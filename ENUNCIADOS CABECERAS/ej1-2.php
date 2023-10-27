@@ -1,7 +1,7 @@
 <?php include ('funciones.php');
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
-        $url = isset($_POST['url']) ? sanear($_POST['url']) : '';
-        $url = validar($url);
+        $url = isset($_POST['url']) ? sanearTexto($_POST['url']) : '';
+        $url = validarURL($url);
 
         if ($url != 1) {
             header('Location: ' . $url);
