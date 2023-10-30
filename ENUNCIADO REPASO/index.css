@@ -1,0 +1,97 @@
+.cargarFicheros {
+  border: 1px solid #1e90ff;
+  border-radius: 5px;
+  margin: 20px;
+}
+
+.descargasDisponibles {
+  border: 1px solid #1e90ff;
+  border-radius: 5px;
+  margin: 20px;
+}
+
+.tituloGrande {
+  background-color: #1e90ff;
+  color: aliceblue;
+  padding: 1px 1px 1px 20px;
+}
+
+.contenidoUno {
+  position: relative;
+  margin: 20px;
+  padding-bottom: 240px;
+}
+
+.contenidoDos {
+  position: relative;
+  margin: 20px;
+}
+
+.usuario,
+.edad,
+.titulo,
+.cargar button {
+  position: absolute;
+  background-color: #1e90ff;
+  color: aliceblue;
+  padding: 10px;
+  text-align: center;
+  border-radius: 5px;
+  border: 0;
+}
+
+.edad {
+  left: 300px;
+}
+
+.titulo {
+  top: 100px;
+}
+
+.cargar {
+  position: relative;
+}
+
+.cargar button {
+  top: 200px;
+  padding: 10px;
+  border-radius: 5px;
+  background-color: #1e90ff;
+  color: aliceblue;
+}
+
+.cargar span {
+  position: absolute;
+  top: 208px;
+  left: 140px;
+}
+
+input {
+  padding: 10px;
+  border-radius: 5px;
+  border: 0;
+}
+
+table th:nth-child(1) {
+  padding-right: 100px;
+}
+
+table th:nth-child(2) {
+  padding-right: 800px;
+}
+
+table th:nth-child(3) {
+  padding-right: 100px;
+}
+
+table td {
+  padding-top: 10px;
+}
+
+table td:nth-child(3) {
+  padding-left: 20px;
+}
+
+table td:nth-child(4) {
+  padding-left: 20px;
+}
