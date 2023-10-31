@@ -1,0 +1,2 @@
+Usuario no cumple con las expectativas.
+Edad debe contener un maximo de 2 digitos.

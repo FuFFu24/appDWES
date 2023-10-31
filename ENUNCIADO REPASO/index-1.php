@@ -48,7 +48,16 @@
         <table>
             <tr>
                 <th>#</th>
-                <th>Nombre del Archivo</th>
+                <th>
+                    Nombre del Archivo
+                    <?php
+                    if (isset($_GET['error'])) {
+                        if ($_GET['error'] == 2) {
+                            echo '<span style="color: red">El archivo no existe.</span>';
+                        }
+                    }
+                    ?>
+                </th>
                 <th>Descargar</th>
                 <th>Eliminar</th>
             </tr>

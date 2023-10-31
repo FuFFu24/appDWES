@@ -7,7 +7,7 @@ if (isset($_GET['archivo'])) {
         unlink($ruta);
         header('Location: index-1.php');
     } else {
-        echo "El archivo no existe.";
+        header('Location: index-1.php?error=2');
     }
 }
 ?>
