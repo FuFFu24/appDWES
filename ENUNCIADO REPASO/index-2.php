@@ -5,9 +5,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     $errores = array();
 
+    $errorUsuario = "";
+    $errorEdad = "";
+    $errorFile = "";
+
     $patronUsuario = '/^[A-ZÁÉÍÓÚÑ][a-záéíóúA-ZÁÉÍÓÚÑ]*$/u';
     if (!preg_match($patronUsuario, $usuario)) {
         $errores[] = "Usuario no cumple con las expectativas.\n";
+        $errorUsuario = "errorUsuario=1&";
     }
 
     $patronEdad = '/^\d{1,2}$/';
@@ -15,9 +20,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $valorNumerico = (int) $edad;
         if ($valorNumerico < 18 || $valorNumerico > 40) {
             $errores[] = "Edad debe estar entre 18 y 40.\n";
+            $errorEdad = "errorEdad=2&";
         }
     } else {
         $errores[] = "Edad debe contener un maximo de 2 digitos.\n";
+        $errorEdad = "errorEdad=1&";
     }
 
     if (is_uploaded_file($_FILES['titulo']['tmp_name'])) {
@@ -31,6 +38,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
     } else {
         $errores[] = "No se ha podido subir el fichero.\n";
+        $errorFile = "errorFile=1&";
     } 
 
     if (!empty($errores)) {
@@ -39,7 +47,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             fwrite($ferrores, $key);
         }
         fclose($ferrores);
-        header('Location: index-1.php?error=1');
+        header('Location: index-1.php?'.$errorUsuario.$errorEdad.$errorFile);
     } else {
         move_uploaded_file ($_FILES['titulo']['tmp_name'],$nombreCompleto);
         header("Location: index-1.php");

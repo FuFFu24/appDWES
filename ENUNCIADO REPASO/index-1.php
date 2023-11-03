@@ -18,24 +18,40 @@
             <div class="usuario">
                 <label for="usuario">Usuario: </label>
                 <input type="text" name="usuario" id="usuario">
+                <?php
+                if (isset($_GET['errorUsuario'])) {
+                    if ($_GET['errorUsuario'] == 1) {
+                        echo '<span style="color: red">Usuario no cumple con las expectativas.</span>';
+                    }
+                }
+                ?>
             </div>
             <div class="edad">
                 <label for="edad">Edad: </label>
                 <input type="text" name="edad" id="edad">
+                <?php
+                if (isset($_GET['errorEdad'])) {
+                    if ($_GET['errorEdad'] == 1) {
+                        echo '<span style="color: red">Edad debe contener un maximo de 2 digitos.</span>';
+                    } else if ($_GET['errorEdad'] == 2) {
+                        echo '<span style="color: red">Edad debe estar entre 18 y 40.</span>';
+                    }
+                }
+                ?>
             </div>
             <div class="titulo">
                 <label for="titulo">Titulo aportado: </label>
                 <input type="file" name="titulo" id="titulo">
-            </div>
-            <div class="cargar">
-                <button type="submit">Cargar Fichero</button>
                 <?php
-                if (isset($_GET['error'])) {
-                    if ($_GET['error'] == 1) {
-                        echo '<span style="color: red">No ha introducido bien los datos</span>';
+                if (isset($_GET['errorFile'])) {
+                    if ($_GET['errorFile'] == 1) {
+                        echo '<span style="color: red">No se ha podido subir el fichero.</span>';
                     }
                 }
                 ?>
+            </div>
+            <div class="cargar">
+                <button type="submit">Cargar Fichero</button>
             </div>
         </form>
         </div>
