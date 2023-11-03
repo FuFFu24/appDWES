@@ -1,7 +1,7 @@
 <?php
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $nombre = isset($_POST['nombre']) ? htmlspecialchars(strip_tags($_POST['nombre']), ENT_QUOTES, "utf-8") : "";
-    $direccion = isset($_POST['direccion']) ? htmlspecialchars(strip_tags($_POST['direccion']), ENT_QUOTES, "utf-8") : "";
+    $nombre = isset($_POST['nombre']) ? htmlspecialchars(trim(strip_tags($_POST['nombre'])), ENT_QUOTES, "utf-8") : "";
+    $direccion = isset($_POST['direccion']) ? htmlspecialchars(trim(strip_tags($_POST['direccion'])), ENT_QUOTES, "utf-8") : "";
     $email = isset($_POST['email']) ? htmlspecialchars(trim(strip_tags($_POST['email'])), ENT_QUOTES, "utf-8") : "";
 
     $errores = [];
@@ -67,8 +67,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         header('Location: index_1.php?' . $errorNombre . $errorDireccion . $errorEmail . $errorFichero);
     } else {
         if (is_file("./errores/errores.txt")) {
-            $ferrores = fopen("./errores/errores.txt", "w");
-            fclose($ferrores);
+            unlink("./errores/errores.txt");
         }
         for ($i = 0; $i < count($nombreFicheros); $i++) { 
             move_uploaded_file($_FILES['adjuntar']['tmp_name'][$i], $nombreCompletos[$i]);
