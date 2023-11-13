@@ -9,18 +9,37 @@ if (!isset($_SESSION['contador'])) {
 
 if (isset($_POST['enviar'])) {
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
-        $_SESSION['nombre'] = $_POST['nombre'];
-        $_SESSION['ciudad'] = $_POST['ciudad'];
-        $_SESSION['email'] = $_POST['email'];
-        $_SESSION['telefono'] = $_POST['telefono'];
-        $_SESSION['signo'] = $_POST['signo'];
-        $_SESSION['lista'] = [
-            $_SESSION['nombre'],
-            $_SESSION['ciudad'],
-            $_SESSION['email'],
-            $_SESSION['telefono'],
-            $_SESSION['signo']
-        ];
+        $nombre = isset($_POST['nombre']) ? htmlspecialchars(trim(strip_tags($_POST['nombre'])),ENT_QUOTES,"utf-8") : '';
+        $ciudad = isset($_POST['ciudad']) ? htmlspecialchars(trim(strip_tags($_POST['ciudad'])),ENT_QUOTES,"utf-8") : '';
+        $email = isset($_POST['email']) ? htmlspecialchars(trim(strip_tags($_POST['email'])),ENT_QUOTES,"utf-8") : '';
+        $telefono = isset($_POST['telefono']) ? htmlspecialchars(trim(strip_tags($_POST['telefono'])),ENT_QUOTES,"utf-8") : '';
+        $signo = isset($_POST['signo']) ? htmlspecialchars(trim(strip_tags($_POST['signo'])),ENT_QUOTES,"utf-8") : '';
+
+        if (!empty($nombre)) {
+            $_SESSION['nombre'] = $nombre;
+        } else if (isset($_SESSION['nombre'])) {
+            unset($_SESSION['nombre']);
+        }
+        if (!empty($ciudad)) {
+            $_SESSION['ciudad'] = $ciudad;
+        } else if (isset($_SESSION['ciudad'])) {
+            unset($_SESSION['ciudad']);
+        }
+        if (!empty($email)) {
+            $_SESSION['email'] = $email;
+        } else if (isset($_SESSION['email'])) {
+            unset($_SESSION['email']);
+        }
+        if (!empty($telefono)) {
+            $_SESSION['telefono'] = $telefono;
+        } else if (isset($_SESSION['telefono'])) {
+            unset($_SESSION['telefono']);
+        }
+        if (!empty($signo)) {
+            $_SESSION['signo'] = $signo;
+        } else if (isset($_SESSION['signo'])) {
+            unset($_SESSION['signo']);
+        }
     }
 }
 ?>
@@ -71,7 +90,7 @@ if (isset($_POST['enviar'])) {
             </select>
         </p>
         <p>
-            <input type="submit" value="enviar">
+            <input type="submit" value="enviar" name="enviar">
         </p>
     </form>
     <p>Otras páginas de la sesión: </p>

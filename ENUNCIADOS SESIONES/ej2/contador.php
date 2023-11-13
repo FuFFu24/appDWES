@@ -1,9 +1,9 @@
 <?php
 session_start();
 
-if (isset($_POST['enviar']) && $_POST['reiniciar'] == 'on') {
+if (isset($_POST['enviar']) && isset($_POST['reiniciar']) == 'on') {
     $_SESSION['contador'] = 0;
-} else {
+} else if (!isset($_POST['enviar']) && !isset($_POST['reiniciar'])) {
     if (!isset($_SESSION['contador'])) {
         $_SESSION['contador'] = 1;
     } else {

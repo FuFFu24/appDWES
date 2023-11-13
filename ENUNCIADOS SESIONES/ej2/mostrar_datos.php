@@ -1,23 +1,17 @@
 <?php
 session_start();
 
-if (isset($_POST['reiniciar']) && $_POST['eliminar'] == 'on') {
-    // Eliminar todas las variables de sesión
+if (isset($_POST['reiniciar']) && isset($_POST['eliminar']) == 'on') {
     session_unset();
-    // Destruir la sesión
     session_destroy();
 }
 
-if (isset($_POST['reiniciar']) && $_POST['acabar'] == 'on') {
-    // Eliminar todas las variables de sesión
+if (isset($_POST['reiniciar']) && isset($_POST['acabar']) == 'on') {
     session_unset();
-    // Destruir la sesión
     session_destroy();
-    // Iniciar una nueva sesión
     session_start();
 }
 
-// Incrementar el contador de páginas recorridas
 if (!isset($_SESSION['contador'])) {
     $_SESSION['contador'] = 1;
 } else {
@@ -44,12 +38,12 @@ if (!isset($_SESSION['contador'])) {
                 <p>Ruta de guardar variables = <?php echo session_save_path(); ?></p>
                 <p>Variables guardadas hasta ahora: </p>
                 <ul>
-                    <li>contar = <?php echo $_SESSION['lista']; ?>.</li>
+                    <li>contar = <?php echo count($_SESSION); ?>.</li>
                 </ul>
             </td>
             <td>
                 <h2>Eliminar variables y reiniciar/terminar sesión:</h2>
-                <form action="contador.php" method="post">
+                <form action="mostrar_datos.php" method="post">
                     <p>
                         <input type="checkbox" name="eliminar" id="eliminar">
                         <label for="eliminar">Eliminar todos los datos.</label>
