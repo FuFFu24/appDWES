@@ -24,17 +24,14 @@
     // Selección del a base de datos a utilizar
     mysqli_select_db( $conexion, $basededatos ) or die ( "Upps! Pues va a ser que no se ha podido conectar a la base de datos" );
 
-    $crearTablaUsuario = "CREATE TABLE usuario (
+    $crearTablaUsuario = "CREATE TABLE IF NOT EXISTS usuario (
         user VARCHAR(30),
         pass VARCHAR(30) NOT NULL,
         email VARCHAR(30) NOT NULL,
         PRIMARY KEY (user)
     )";
 
-    $consulta = "describe usuario";
-    if (!$consulta) {
-        mysqli_query($conexion, $crearTablaUsuario) or die ( "Algo ha ido mal en la consulta a la base de datos (crearTablaUsuario)");
-    }
+    mysqli_query($conexion, $crearTablaUsuario) or die ( "Algo ha ido mal en la consulta a la base de datos (crearTablaUsuario)");
 
     $insertarDatos1 = "INSERT INTO usuario (user, pass, email) 
     VALUES ('User1', 'admin1', 'user1@gmail.com')";
@@ -45,11 +42,17 @@
     $insertarDatos3 = "INSERT INTO usuario (user, pass, email) 
     VALUES ('User3', 'admin3', 'user3@gmail.com')";
 
-    mysqli_query( $conexion, $insertarDatos1 ) or die ( "Algo ha ido mal en la consulta a la base de datos (insertarDatos1)");
-    mysqli_query( $conexion, $insertarDatos2 ) or die ( "Algo ha ido mal en la consulta a la base de datos (insertarDatos2)");
-    mysqli_query( $conexion, $insertarDatos3 ) or die ( "Algo ha ido mal en la consulta a la base de datos (insertarDatos3)");
+    $consulta = "select * from usuario";
+    $resultado = mysqli_query( $conexion, $consulta ) or die ( "Algo ha ido mal en la consulta a la base de datos (consulta)");
+    $resultado = mysqli_num_rows($resultado);
 
-    $crearTablaEmpleados = "CREATE TABLE empleados (
+    if ($resultado == 0) {
+        mysqli_query( $conexion, $insertarDatos1 ) or die ( "Algo ha ido mal en la consulta a la base de datos (insertarDatos1)");
+        mysqli_query( $conexion, $insertarDatos2 ) or die ( "Algo ha ido mal en la consulta a la base de datos (insertarDatos2)");
+        mysqli_query( $conexion, $insertarDatos3 ) or die ( "Algo ha ido mal en la consulta a la base de datos (insertarDatos3)");
+    }
+
+    $crearTablaEmpleados = "CREATE TABLE IF NOT EXISTS empleados (
         codigo INT NOT NULL AUTO_INCREMENT,
         nombres VARCHAR(30) NOT NULL,
         lugar_nacimiento VARCHAR(30) NOT NULL,
@@ -97,6 +100,11 @@
             <label for="password">Password: </label>
             <input type="password" name="password" id="password">
         </p>
+        <?php
+            if (isset($_GET['error']) && $_GET['error'] == "errorCredenciales") {
+                echo '<p style="color: red">No ha bien las credenciales</p>';
+            }
+        ?>
         <p>
             <input type="submit" value="Iniciar Sesion" name="iniciar">
         </p>
