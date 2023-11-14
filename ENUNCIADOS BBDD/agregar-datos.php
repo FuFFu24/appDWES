@@ -32,6 +32,7 @@
                 $insertarDatos = 'INSERT INTO empleados (nombres, lugar_nacimiento, fecha_nacimiento, direccion, telefono, puesto) 
                     VALUES ("'.$nombre.'", "'.$lugar.'", "'.$fecha.'", "'.$direccion.'", '.$telefono.', "'.$puesto.'")';
                 mysqli_query( $conexion, $insertarDatos ) or die ( "Algo ha ido mal en la consulta a la base de datos (insertarDatos)");
+                header("Location: lista-empleados.php");
             }
         }
     }
