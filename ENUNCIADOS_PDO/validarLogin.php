@@ -33,4 +33,6 @@ try {
 } catch (PDOException $e) {
     die('<p>Se ha producido un Error: '. $e->getMessage().'</p>');
 }
+
+$conexion =null;
 ?>
