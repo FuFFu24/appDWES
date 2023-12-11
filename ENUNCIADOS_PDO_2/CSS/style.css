@@ -1,0 +1,17 @@
+body {
+  background-color: #fef3c7;
+}
+
+h1 {
+  padding: 10px 20px;
+  color: white;
+  background-color: #f49d0c;
+}
+
+.contenido {
+  margin: 20px;
+}
+
+.contenido table {
+  margin: 20px;
+}
