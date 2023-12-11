@@ -37,13 +37,17 @@ if (!isset($_SESSION['sesion'])) {
         $resultado ->execute([$id]);
 
         if ($resultado->rowCount() != 0) {
-            try {
-                $conexion->beginTransaction();
-                $conexion->query('UPDATE personas SET nombre = "'.$nombre.'", apellidos = "'.$apellidos.'" WHERE id = '.$id.'');
-                echo "<p>Registro modificado correctamente.</p>";
-            } catch (Exception $e){
-                echo "<p>Ha habido algún error, voy a deshacer los cambios.</p>";
-                $conexion->rollback();
+            if (empty($nombre) || empty($apellidos)) {
+                header("Location: validarModificar.php?error=camposVacios");
+            } else {
+                try {
+                    $conexion->beginTransaction();
+                    $conexion->query('UPDATE personas SET nombre = "'.$nombre.'", apellidos = "'.$apellidos.'" WHERE id = '.$id.'');
+                    echo "<p>Registro modificado correctamente.</p>";
+                } catch (Exception $e){
+                    echo "<p>Ha habido algún error, voy a deshacer los cambios.</p>";
+                    $conexion->rollback();
+                }
             }
         } else {
             echo "<p style='color : red'>El registro no existe.</p>";

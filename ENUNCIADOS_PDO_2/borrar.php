@@ -27,7 +27,21 @@ $conexion = conectarBbdd();
     <?php
     try {
         // con acceso SOLO ES ASOCIATIVO, índice con el nombre de la columnas de la tabla
-        $resultado = $conexion->prepare("SELECT * FROM personas");
+        if (isset($_GET['nombreDown'])) {
+            $resultado = $conexion->prepare("SELECT * FROM personas ORDER BY nombre DESC");
+
+        } else if (isset($_GET['nombreUp'])) {
+            $resultado = $conexion->prepare("SELECT * FROM personas ORDER BY nombre ASC");
+
+        } else if (isset($_GET['apellidoDown'])) {
+            $resultado = $conexion->prepare("SELECT * FROM personas ORDER BY apellidos DESC");
+
+        } else if (isset($_GET['apellidoUp'])) {
+            $resultado = $conexion->prepare("SELECT * FROM personas ORDER BY apellidos ASC");
+
+        } else {
+            $resultado = $conexion->prepare("SELECT * FROM personas ORDER BY apellidos ASC");
+        }
 
         // Especificamos el fetch mode antes de llamar a fetch()
         $resultado->setFetchMode(PDO::FETCH_ASSOC);
@@ -40,7 +54,9 @@ $conexion = conectarBbdd();
             echo "<p>Marque los registros que quiere borrar:</p>";
             echo '<form action="validarBorrar.php" method="post">';
             echo "<table class='listados'>";
-            echo "<tr><th>Borrar</th><th>Nombre</th><th>Apellidos</th></tr>";
+            echo '<form action="borrar.php" method="get">';
+            echo "<tr><th>Borrar</th><th><button type='submit' name='nombreDown'>↓</button>Nombre<button type='submit' name='nombreUp'>↑</button></th><th><button type='submit' name='apellidoDown'>↓</button>Apellidos<button type='submit' name='apellido='up'>↑</button></th></tr>";
+            echo '</form>';
             // Mostramos los resultados
             while ($row = $resultado->fetch()){
                 echo "<tr>";

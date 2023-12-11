@@ -30,31 +30,47 @@ if (!isset($_SESSION['sesion'])) {
 
     if (empty($nombre) && empty($apellidos)) {
         try {
-                // con acceso SOLO ES ASOCIATIVO, índice con el nombre de la columnas de la tabla
-                $resultado = $conexion->prepare("SELECT * FROM personas");
+            // con acceso SOLO ES ASOCIATIVO, índice con el nombre de la columnas de la tabla
+            if (isset($_GET['nombreDown'])) {
+                $resultado = $conexion->prepare("SELECT * FROM personas ORDER BY nombre DESC");
+    
+            } else if (isset($_GET['nombreUp'])) {
+                $resultado = $conexion->prepare("SELECT * FROM personas ORDER BY nombre ASC");
+    
+            } else if (isset($_GET['apellidoDown'])) {
+                $resultado = $conexion->prepare("SELECT * FROM personas ORDER BY apellidos DESC");
+    
+            } else if (isset($_GET['apellidoUp'])) {
+                $resultado = $conexion->prepare("SELECT * FROM personas ORDER BY apellidos ASC");
+    
+            } else {
+                $resultado = $conexion->prepare("SELECT * FROM personas ORDER BY apellidos ASC");
+            }
 
-                // Especificamos el fetch mode antes de llamar a fetch()
-                $resultado->setFetchMode(PDO::FETCH_ASSOC);
+            // Especificamos el fetch mode antes de llamar a fetch()
+            $resultado->setFetchMode(PDO::FETCH_ASSOC);
 
-                // Ejecutamos
-                $resultado->execute();
+            // Ejecutamos
+            $resultado->execute();
 
-                if ($resultado->rowCount() != 0) {
+            if ($resultado->rowCount() != 0) {
 
-                    echo "<p>Listado completo de los registros:</p>";
-                    echo "<table class='listados'>";
-                    echo "<tr><th>Nombre</th><th>Apellidos</th></tr>";
-                    // Mostramos los resultados
-                    while ($row = $resultado->fetch()){
-                        echo "<tr>";
-                        echo "<td>{$row["nombre"]}</td>";
-                        echo "<td>{$row["apellidos"]}</td>";
-                        echo "</tr>";
-                    }
-                    echo "<table>";
-                } else {
-                    echo "<p>No hay ningun registro.</p>";
+                echo "<p>Listado completo de los registros:</p>";
+                echo "<table class='listados'>";
+                echo '<form action="validarBuscar.php" method="get">';
+                echo "<tr><th><button type='submit' name='nombreDown'>↓</button>Nombre<button type='submit' name='nombreUp'>↑</button></th><th><button type='submit' name='apellidoDown'>↓</button>Apellidos<button type='submit' name='apellido='up'>↑</button></th></tr>";
+                echo '</form>';
+                // Mostramos los resultados
+                while ($row = $resultado->fetch()){
+                    echo "<tr>";
+                    echo "<td>{$row["nombre"]}</td>";
+                    echo "<td>{$row["apellidos"]}</td>";
+                    echo "</tr>";
                 }
+                echo "<table>";
+            } else {
+                echo "<p>No hay ningun registro.</p>";
+            }
         } catch (PDOException $e) {
             die('<p>Se ha producido un Error: '. $e->getMessage().'</p>');
         }

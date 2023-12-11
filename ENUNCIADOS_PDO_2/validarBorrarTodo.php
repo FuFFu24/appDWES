@@ -83,6 +83,15 @@ $conexion = conectarBbdd();
                 } catch (PDOException $e) {
                     die('<p>Se ha producido un Error: '. $e->getMessage().'</p>');
                 }
+
+                $nombre = session_name();
+                setcookie($nombre,'',time()-1);
+                session_unset();
+                session_destroy();
+
+                if (!isset($_SESSION['sesion'])) {
+                    echo "<p>Sesion borrada correctamente.";
+                }
                 
                 $conexion =null;
             } else if (isset($_POST["no"])) {

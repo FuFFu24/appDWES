@@ -7,37 +7,41 @@ if (!isset($_SESSION['sesion'])) {
 
 $conexion = conectarBbdd();
 
-$modificar = isset($_POST['modificar']) ? htmlspecialchars(trim(strip_tags($_POST['modificar'])),ENT_QUOTES,"utf-8") : '';
+if (isset($_POST['enviar1'])) {
+    $modificar = isset($_POST['modificar']) ? htmlspecialchars(trim(strip_tags($_POST['modificar'])),ENT_QUOTES,"utf-8") : '';
 
-if (empty($modificar)) {
-    header("Location: modificar.php?error=noSelect");
-} else {
-    // CONSULTA PREPARADA CON INTERRORGACIONES PDO PUEDE DESINFECTAR LOS DATOS
-    $consulta = 'SELECT * FROM personas WHERE id = ?';
-
-    try {
-        $resultado = $conexion->prepare($consulta);
-
-        // Especificamos el fetch mode antes de llamar a fetch()
-        $resultado->setFetchMode(PDO::FETCH_ASSOC);
-
-        $resultado ->execute([$modificar]);
-
-        if ($resultado->rowCount() != 0) {
-
-            // Mostramos los resultados
-            while ($row = $resultado->fetch()){
-                $id = $row["id"];
-                $nombre = $row["nombre"];
-                $apellidos = $row["apellidos"];
-            }
-        } 
-    } catch (PDOException $e) {
-        die('<p>Se ha producido un Error: '. $e->getMessage().'</p>');
+    if (empty($modificar)) {
+        header("Location: modificar.php?error=noSelect");
     }
 
-    $conexion =null;
+    $_SESSION['id'] = $modificar;
 }
+
+// CONSULTA PREPARADA CON INTERRORGACIONES PDO PUEDE DESINFECTAR LOS DATOS
+$consulta = 'SELECT * FROM personas WHERE id = ?';
+
+try {
+    $resultado = $conexion->prepare($consulta);
+
+    // Especificamos el fetch mode antes de llamar a fetch()
+    $resultado->setFetchMode(PDO::FETCH_ASSOC);
+
+    $resultado ->execute([$_SESSION['id']]);
+
+    if ($resultado->rowCount() != 0) {
+
+        // Mostramos los resultados
+        while ($row = $resultado->fetch()){
+            $id = $row["id"];
+            $nombre = $row["nombre"];
+            $apellidos = $row["apellidos"];
+        }
+    } 
+} catch (PDOException $e) {
+    die('<p>Se ha producido un Error: '. $e->getMessage().'</p>');
+}
+
+$conexion =null;
 ?>
 
 <!DOCTYPE html>
@@ -69,8 +73,13 @@ if (empty($modificar)) {
             <td><input type="text" name="apellidos" id="apellidos" value="<?php echo $apellidos; ?>"></td>
         </tr>
         </table>
+        <?php
+        if (isset($_GET['error']) && $_GET['error'] == "camposVacios") {
+            echo "<p style='color : red'>Rellene todos los campos.</p>";
+        }
+        ?>
         <p>
-            <input type="submit" value="Actualizar" name="enviar">
+            <input type="submit" value="Actualizar" name="enviar2">
             <input type="reset" value="Reiniciar Formulario">
         </p>
     </form>

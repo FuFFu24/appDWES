@@ -21,6 +21,7 @@ if (!isset($_SESSION['sesion'])) {
             <a href="gestionCRUD.php">Volver</a>
         </li>
     </ul>
+    <div class="contenido">
     <?php include "funciones.php";
     $conexion = conectarBbdd();
 
@@ -35,13 +36,17 @@ if (!isset($_SESSION['sesion'])) {
         $resultado ->execute([$nombre, $apellidos]);
 
         if ($resultado->rowCount() == 0) {
-            try {
-                $conexion->beginTransaction();
-                $conexion->query('INSERT INTO personas (nombre, apellidos) VALUES ("'.$nombre.'","'.$apellidos.'")');
-                echo "<p>Registro <strong>$nombre $apellidos</strong> creado correctamente.</p>";
-            } catch (Exception $e){
-                echo "<p>Ha habido algún error, voy a deshacer los cambios.</p>";
-                $conexion->rollback();
+            if (empty($nombre) || empty($apellidos)) {
+                echo "<p style='color : red'>Hay rellenar todos los campos. No se ha guardado el registro.</p>";
+            } else {
+                try {
+                    $conexion->beginTransaction();
+                    $conexion->query('INSERT INTO personas (nombre, apellidos) VALUES ("'.$nombre.'","'.$apellidos.'")');
+                    echo "<p>Registro <strong>$nombre $apellidos</strong> creado correctamente.</p>";
+                } catch (Exception $e){
+                    echo "<p>Ha habido algún error, voy a deshacer los cambios.</p>";
+                    $conexion->rollback();
+                }
             }
         } else {
             echo "<p style='color : red'>El registro ya existe.</p>";
@@ -52,5 +57,6 @@ if (!isset($_SESSION['sesion'])) {
 
     $conexion =null;
     ?>
+    </div>
 </body>
 </html>
