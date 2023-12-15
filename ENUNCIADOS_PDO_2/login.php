@@ -9,7 +9,11 @@
 <body>
     <h1>BASES DE DATOS 2-1 - LOGIN</h1>
     <div class="contenido">
-        <p>Inicia sesion para acceder a la aplicacion.</p>
+        <?php
+        if (isset($_GET['error']) && $_GET['error'] == "noSesion") {
+            echo "<p style='color : red'>Inicia sesion para acceder a la aplicacion.</p>";
+        }
+        ?>
         <form action="validarLogin.php" method="post">
             <table>
             <tr>

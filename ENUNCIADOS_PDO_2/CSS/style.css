@@ -15,3 +15,37 @@ h1 {
 .contenido table {
   margin: 20px;
 }
+
+ul {
+  background-color: #fbd24e;
+  padding: 20px 0;
+  margin-top: -20px;
+}
+
+ul li {
+  display: inline;
+  padding: 10px 20px;
+}
+
+ul li a {
+  color: white;
+}
+
+table.listados {
+  border: 1px solid black;
+}
+
+table.listados th,
+table.listados td {
+  border: 1px solid black;
+  padding: 0 40px;
+  text-align: center;
+}
+
+table.listados tr:nth-child(odd) {
+  background: #fbd24e;
+}
+
+table.listados tr:nth-child(even) {
+  background: white;
+}
