@@ -6,7 +6,7 @@
     <title>Document</title>
 </head>
 <body>
-    <form action="ej4-2.php" method="post">
+    <form action="ej4-2.php" method="post" enctype="multipart/form-data">
         <label for="nombre">Nombre:</label>
         <input type="text" name="nombre" id="nombre">
         <br>

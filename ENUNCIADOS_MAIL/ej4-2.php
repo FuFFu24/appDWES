@@ -2,7 +2,7 @@
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
 $nombre = isset($_POST['nombre']) ? htmlspecialchars(trim(strip_tags($_POST['nombre'])),ENT_QUOTES,"utf-8") : '';
-$mail = isset($_POST['mail']) ? htmlspecialchars(trim(strip_tags($_POST['mail'])),ENT_QUOTES,"utf-8") : '';
+$email = isset($_POST['email']) ? htmlspecialchars(trim(strip_tags($_POST['email'])),ENT_QUOTES,"utf-8") : '';
 $asunto = "Correo eJemplo con un archivo adjunto";
 $mensaje = isset($_POST['mensaje']) ? htmlspecialchars(trim(strip_tags($_POST['mensaje'])),ENT_QUOTES,"utf-8") : '';
 
@@ -15,11 +15,7 @@ if (empty($nombre) || empty($email) || empty($mensaje)) {
 //Indicar cabecera con el nombre del remitente. Si no indicamos la dirección de correo puede que no se realice el envío a otros servicios como Hotmail o Yahoo
 
 $cabeceras = "From: alonsofloresdaw@gmail.com"."\r\n";
-
-//SI LO HACES A TRAVÉS DE FORMULARIO AQUI SE VERIA SI HA LLEGADO EL $_FILES Y SI SE HA DESCARGADO DE FORMA SEGURA
-/* $archivo_adjunto = "ruta/al/archivo.pdf";
-$contenido_adjunto = file_get_contents($archivo_adjunto);
-$adjunto_codificado = chunk_split(base64_encode($contenido_adjunto)); */
+$cabeceras .= "Reply-To: alonsofloresdaw@gmail.com"."\r\n";
 
 if (is_uploaded_file ($_FILES['archivo']['tmp_name'])) {
     $nombreDirectorio = "files/";
@@ -37,6 +33,11 @@ if (is_uploaded_file ($_FILES['archivo']['tmp_name'])) {
     print ("No se ha podido subir el fichero\n");
 }   
 
+//SI LO HACES A TRAVÉS DE FORMULARIO AQUI SE VERIA SI HA LLEGADO EL $_FILES Y SI SE HA DESCARGADO DE FORMA SEGURA
+$archivo_adjunto = $_FILES['archivo']['name'];
+$contenido_adjunto = file_get_contents("files/".$archivo_adjunto);
+$adjunto_codificado = chunk_split(base64_encode($contenido_adjunto));
+
 // Creamos la cabecera del mensaje:
 
 $cabeceras .= "MIME-Version: 1.0" . "\r\n" .
@@ -46,13 +47,13 @@ $cabeceras .= "MIME-Version: 1.0" . "\r\n" .
     "Content-Transfer-Encoding: 7bit\r\n\r\n" .
     "$mensaje\r\n\r\n" .
     "--separador de ls partes del mensaje\r\n" .     // Continuamos construyendo el cuerpo del mensaje, añadiendo el archivo:
-    "Content-Type: application/octet-stream; name=\"$archivo_adjunto\"\r\n" . 
+    "Content-Type: $_FILES[archivo][type]; name=\"$_FILES[archivo][name]\"\r\n" . 
     "Content-Transfer-Encoding: base64\r\n" .
     "Content-Disposition: attachment\r\n\r\n" .
     "$adjunto_codificado\r\n" .
     "--separador de ls partes del mensaje--";    // Separador de final del mensaje
 
-    $ok =mail($mail, $asunto, $cabeceras);
+    $ok =mail($email, $asunto, $mensaje, $cabeceras);
 	
 	if( $ok == true ) {
 			echo "<p>El E-Mail ha sido enviado</p>";

@@ -16,7 +16,7 @@
         <label for="mensaje">Mensaje:</label>
         <textarea name="mensaje" id="mensaje" cols="30" rows="10"></textarea>
         <br>
-        <input type="submit" value="Envia" name="enviar">
+        <input type="submit" value="Enviar" name="enviar">
     </form>
 </body>
 </html>
