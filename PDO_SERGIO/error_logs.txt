@@ -1,0 +1,12 @@
+[2023-12-12 17:48:27]SQLSTATE[21S01]: Insert value list does not match column list: 1136 Column count doesn't match value count at row 1
+[2023-12-12 17:52:26]SQLSTATE[21S01]: Insert value list does not match column list: 1136 Column count doesn't match value count at row 1
+[2023-12-12 17:52:36]SQLSTATE[21S01]: Insert value list does not match column list: 1136 Column count doesn't match value count at row 1
+[2023-12-12 17:55:20]SQLSTATE[21S01]: Insert value list does not match column list: 1136 Column count doesn't match value count at row 1
+[2023-12-12 19:58:01]SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ''ASC'' at line 1
+[2023-12-12 19:58:26]SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ''ASC'' at line 1
+[2023-12-12 19:58:34]SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ''ASC'' at line 1
+[2023-12-12 20:00:25]SQLSTATE[HY093]: Invalid parameter number: number of bound variables does not match number of tokens
+[2023-12-12 20:00:30]SQLSTATE[HY093]: Invalid parameter number: number of bound variables does not match number of tokens
+[2023-12-12 20:02:11]SQLSTATE[HY093]: Invalid parameter number: number of bound variables does not match number of tokens
+[2023-12-12 20:03:19]SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ''ASC'' at line 1
+[2023-12-13 17:54:30]SQLSTATE[HY000]: General error: 1364 Field 'id' doesn't have a default value

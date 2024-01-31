@@ -1,0 +1,90 @@
+<!-- todo lo relacionado con la gestion del formulario y del fichero adjunto deber�s rellanarlo tu-->
+
+<HTML LANG="es">
+
+<HEAD>
+	<TITLE>Solicitud de vivenda</TITLE>
+	<LINK />
+</HEAD>
+
+<BODY>
+
+
+	<H1>Inserci�n de vivienda</H1>
+
+	<P>Introduzca los datos de la vivienda:</P>
+
+	<FORM>
+
+		<P><LABEL>Tipo de vivienda:</LABEL>
+			<SELECT NAME="tipo">
+
+				<OPTION>Piso
+				<OPTION>Adosado
+				<OPTION>Chalet
+				<OPTION>Casa
+
+			</SELECT>
+		</P>
+
+		<P><LABEL>Zona:</LABEL>
+			<SELECT NAME="zona">
+
+				<OPTION>Centro
+				<OPTION>Nervion
+				<OPTION>Triana
+				<OPTION>Aljarafe
+				<OPTION>Macarena
+
+			</SELECT>
+		</P>
+
+		<P><LABEL>Direccion:</LABEL>
+			<INPUT TYPE="TEXT" NAME="direccion">
+		</P>
+
+		<P><LABEL>Numero de dormitorios:</LABEL>
+
+			<INPUT TYPE='radio' NAME='ndormitorios' VALUE='1'>1
+			<INPUT TYPE='radio' NAME='ndormitorios' VALUE='2'>2
+			<INPUT TYPE='radio' NAME='ndormitorios' VALUE='3' CHECKED>3
+			<INPUT TYPE='radio' NAME='ndormitorios' VALUE='4'>4
+			<INPUT TYPE='radio' NAME='ndormitorios' VALUE='5'>5
+
+		</P>
+
+		<P><LABEL>Precio:</LABEL>
+			<INPUT TYPE="TEXT" NAME="precio"> &euro;
+		</P>
+
+		<P><LABEL>Tamaño:</LABEL>
+			<INPUT TYPE="TEXT" NAME="tamano"> metros cuadrados
+		</P>
+
+		<P><LABEL>Extras (marque los que procedan):</LABEL>
+
+			<INPUT TYPE='checkbox' NAME='extras[]' VALUE='Piscina'>Piscina
+			<INPUT TYPE='checkbox' NAME='extras[]' VALUE='Jardi�n'>Jardin
+			<INPUT TYPE='checkbox' NAME='extras[]' VALUE='Garaje'>Garaje
+			<INPUT TYPE='checkbox' NAME='extras[]' VALUE='Sauna'>Sauna
+
+		</P>
+
+		<P><LABEL>Foto:</LABEL>
+
+			<INPUT value='examinar'>
+
+		</P>
+
+		<P><LABEL>Observaciones:</LABEL>
+			<TEXTAREA NAME="observaciones" COLS="50" ROWS="5"></TEXTAREA>
+		</P>
+
+		<P><INPUT TYPE="submit" NAME="insertar" VALUE="Insertar vivienda"></P>
+
+	</FORM>
+
+
+</BODY>
+
+</HTML>
